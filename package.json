@@ -1,0 +1,86 @@
+{
+  "name": "verilog-waveform-visualzer",
+  "displayName": "Verilog Waveform Visualizer",
+  "description": "Visualize Verilog waveforms and provide linting capabilities using Icarus Verilog and GTKWave",
+  "version": "0.0.1",
+  "publisher": "YOUR_PUBLISHER_NAME",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/verilog-waveform-visualzer"
+  },
+  "keywords": [
+    "verilog",
+    "waveform",
+    "simulation",
+    "visualization",
+    "gtkwave",
+    "iverilog"
+  ],
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.98.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Visualization"
+  ],
+  "activationEvents": [
+    "onLanguage:verilog"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [{
+      "id": "verilog",
+      "extensions": [".v", ".sv"],
+      "aliases": ["Verilog", "verilog"],
+      "configuration": "./language-configuration.json"
+    }],
+    "commands": [
+      {
+        "command": "verilog-waveform-visualzer.generateWaveform",
+        "title": "Generate Waveform",
+        "category": "Verilog"
+      },
+      {
+        "command": "verilog-waveform-visualzer.lint",
+        "title": "Lint Verilog",
+        "category": "Verilog"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "verilog-waveform-visualzer.generateWaveform",
+          "when": "editorLangId == verilog"
+        },
+        {
+          "command": "verilog-waveform-visualzer.lint",
+          "when": "editorLangId == verilog"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "postinstall": "node ./scripts/check-dependencies.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.98.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "eslint": "^9.23.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  },
+  "dependencies": {
+    "node-iverilog": "^1.0.0",
+    "node-gtkwave": "^1.0.0"
+  }
+}

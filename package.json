@@ -3,12 +3,12 @@
   "displayName": "Verilog Waveform Visualizer",
   "description": "Visualize Verilog waveforms and provide linting capabilities using Icarus Verilog and GTKWave",
   "version": "0.0.1",
-  "publisher": "YOUR_PUBLISHER_NAME",
+  "publisher": "nithishkumar2022020",
   "private": false,
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/verilog-waveform-visualzer"
+    "url": "https://github.com/nithishkumar2022020/verilog_waveform_generator.git"
   },
   "keywords": [
     "verilog",
